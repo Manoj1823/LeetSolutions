@@ -1,16 +1,15 @@
 class Solution {
     int c = 0;
     public int numberOfSteps(int i) {
-        if(i == 0){
+        return helper(i, c);
+    }
+    static int helper(int n, int c){
+        if(n==0) {
             return c;
         }
-        if(i % 2 == 0){
-            c++;
-            return numberOfSteps(i / 2);
+        if(n%2 == 0){
+            return helper(n/2, c+1);
         }
-        else{
-            c++;
-            return numberOfSteps(i - 1);
-        } 
+            return helper(n-1, c+1);
+        }
     }
-}
